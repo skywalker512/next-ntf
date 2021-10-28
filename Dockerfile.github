@@ -1,7 +1,9 @@
 FROM mhart/alpine-node:slim-14
 
 WORKDIR /app
-COPY . .
+COPY .next /app/.next
+COPY script/server.mjs /app/script/server.mjs
+COPY tmp /app/node_modules
 ENV NODE_ENV=production
 EXPOSE 3010
 CMD ["node", "script/server.mjs"]
