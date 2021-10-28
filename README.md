@@ -38,6 +38,14 @@
 
 正如上面所说 `Next.js 不对发出的 .nft.json 文件做任何处理` 本项目主要是做了最小化的 demo 来演示这个特性应该如何使用
 
+## 使用
+
+```shell
+docker run --init -p 3010:3010 -d --name next-ntf houzhenhong/next-ntf
+
+open http://localhost:3010/
+```
+
 ## 流程
 
 因为使用了 nodejs esmodule 的一些特性，使用 nodejs 14+ 开发才不会有兼容问题
