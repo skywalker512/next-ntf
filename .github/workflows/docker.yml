@@ -24,7 +24,7 @@ jobs:
       - name: Install packages
         run: npm ci --registry https://registry.npmjs.org/
       - name: Build
-        run: npm run build && node script/docker.mjs && rm -rf /app/.next/cache
+        run: npm run build && node script/docker.mjs && rm -rf .next/cache && ls -l
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to Docker Hub
