@@ -31,10 +31,10 @@ jobs:
       - name: Cache Next
         uses: actions/cache@v2
         with:
-          path: '**/.next/cache'
-          key: ${{ runner.os }}-next-${{ github.sha }}
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-next-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
       - name: Build
         run: npm run build && node script/docker.mjs && echo "/.next/cache" > .dockerignore
       - name: Set up Docker Buildx
