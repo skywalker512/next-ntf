@@ -3,8 +3,8 @@
 const config = {
   reactStrictMode: true,
   typescript: {
-    tsconfigPath: './tsconfig.app.json'
-  }
+    tsconfigPath: './tsconfig.app.json',
+  },
 }
 
 export default config
