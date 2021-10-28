@@ -31,7 +31,7 @@ jobs:
       - name: Cache Next
         uses: actions/cache@v2
         with:
-          path: './.next/cache'
+          path: '**/.next/cache'
           key: ${{ runner.os }}-next-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-next-
