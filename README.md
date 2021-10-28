@@ -48,7 +48,7 @@ open http://localhost:3010/
 
 ## 流程
 
-因为使用了 nodejs esmodule 的一些特性，使用 nodejs 14+ 开发才不会有兼容问题
+因为使用了 nodejs esmodule 的一些特性，使用 nodejs 14+/ TypeScript 4.5+ 开发才不会有兼容问题
 
 #### 编译
 
