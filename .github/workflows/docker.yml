@@ -19,18 +19,22 @@ jobs:
           node-version: '14'
       - name: NPM Cache
         uses: actions/cache@v2
+        id: npm-cache
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-npm-
       - name: Install packages
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci --registry https://registry.npmjs.org/
       - name: Cache Next
         uses: actions/cache@v2
         with:
-          path: .next/cache
-          key: ${{ runner.os }}-next
+          path: './.next/cache'
+          key: ${{ runner.os }}-next-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-next-
       - name: Build
         run: npm run build && node script/docker.mjs && echo "/.next/cache" > .dockerignore
       - name: Set up Docker Buildx
